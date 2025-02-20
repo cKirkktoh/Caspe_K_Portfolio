@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 28.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 109.37 128" style="enable-background:new 0 0 109.37 128;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+	.st2{fill:none;stroke:#000000;stroke-width:4;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#E6E7E8;stroke-width:3;stroke-miterlimit:10;}
+	.st4{fill:none;stroke:#E6E7E8;stroke-width:6;stroke-miterlimit:10;}
+	.st5{fill:none;stroke:#E6E7E8;stroke-width:4;stroke-miterlimit:10;}
+</style>
+<g id="bLACK">
+	<g>
+		<g>
+			<line class="st0" x1="383.24" y1="-125.49" x2="383.24" y2="-70.99"/>
+			<line class="st0" x1="391.24" y1="-132.12" x2="391.24" y2="-64.37"/>
+			<line class="st0" x1="399.24" y1="-138.74" x2="399.24" y2="-57.74"/>
+			<line class="st1" x1="407.24" y1="-162.24" x2="407.24" y2="-34.24"/>
+			<line class="st0" x1="375.24" y1="-120.99" x2="375.24" y2="-75.49"/>
+			<polyline class="st2" points="481.7,-160.36 419.58,-98.24 480.2,-37.63 			"/>
+		</g>
+		<text transform="matrix(1 0 0 1 359.3207 9.2879)" style="font-family:'Lato-Bold'; font-size:36px; letter-spacing:7;">KLINT</text>
+		<text transform="matrix(1 0 0 1 291.2438 44.5053)" style="font-family:'Lato-Bold'; font-size:21px; letter-spacing:1;">DISCOVER PURE SOUND</text>
+	</g>
+	<g>
+		<g>
+			<line class="st0" x1="1042.58" y1="36.75" x2="1042.58" y2="91.25"/>
+			<line class="st0" x1="1050.58" y1="30.12" x2="1050.58" y2="97.88"/>
+			<line class="st0" x1="1058.58" y1="23.5" x2="1058.58" y2="104.5"/>
+			<line class="st1" x1="1066.58" y1="0" x2="1066.58" y2="128"/>
+			<line class="st0" x1="1034.58" y1="41.25" x2="1034.58" y2="86.75"/>
+			<polyline class="st2" points="1141.04,1.88 1078.92,64 1139.54,124.62 			"/>
+		</g>
+		<text transform="matrix(1 0 0 1 1018.6605 171.5326)" style="font-family:'Lato-Bold'; font-size:36px; letter-spacing:7;">KLINT</text>
+		<text transform="matrix(1 0 0 1 950.5835 206.75)" style="font-family:'Lato-Bold'; font-size:21px; letter-spacing:1;">DISCOVER PURE SOUND</text>
+	</g>
+</g>
+<g id="Layer_2">
+	<g>
+		<g>
+			<line class="st3" x1="9.5" y1="36.75" x2="9.5" y2="91.25"/>
+			<line class="st3" x1="17.5" y1="30.12" x2="17.5" y2="97.88"/>
+			<line class="st3" x1="25.5" y1="23.5" x2="25.5" y2="104.5"/>
+			<line class="st4" x1="33.5" y1="0" x2="33.5" y2="128"/>
+			<line class="st3" x1="1.5" y1="41.25" x2="1.5" y2="86.75"/>
+			<polyline class="st5" points="107.96,1.88 45.84,64 106.46,124.62 			"/>
+		</g>
+	</g>
+</g>
+</svg>
