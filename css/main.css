@@ -336,6 +336,29 @@ img{
     background-color: var(--first-color-light);
 }
 
+/* About */
+.about_data {
+    text-align: center;
+}
+  
+.about_description span {
+    font-size: var(--h2-font-size);
+    font-weight: var(--font-semi-bold);
+    color: var(--first-color);
+}
+  
+.about_number {
+    font-size: var(--h1-font-size);
+    color: var(--first-color);
+    display: block;
+}
+  
+.about_img {
+    justify-self: center;
+    width: 220px;
+    border-radius: .5rem;
+  }
+
 
 /*----- MEDIA QUERIES -----*/
 
