@@ -357,8 +357,39 @@ img{
     justify-self: center;
     width: 220px;
     border-radius: .5rem;
-  }
+}
 
+/*===== SERVICES =====*/
+.services_data {
+    padding: 48px 16px;
+    background-color: #FFF;
+    border-radius: 8px;
+    text-align: center;
+    transition: .4s;
+    box-shadow: 0 4px 6px rgba(174, 190, 205, 0.3);
+}
+  
+.services_data:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 8px rgba(174, 190, 205, 0.4);
+}
+  
+.services_icon, .services__title {
+    margin-bottom: var(--mb-2);
+    color: var(--first-color);
+}
+  
+.services_icon {
+    font-size: 48px;
+}
+  
+.services_title {
+    font-size: var(--h3-font-size);
+}
+  
+.services_description {
+    margin-bottom: var(--mb-4);
+}
 
 /*----- MEDIA QUERIES -----*/
 
