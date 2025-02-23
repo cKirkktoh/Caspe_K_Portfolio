@@ -2,14 +2,14 @@
 /*Variables css*/
 :root {
   --header-height: 48px;
-    /*----- color -----*/
+    /* color */
   --first-color: #3E0E12;
   --first-color-dark: #2f0a0d;
   --text-color: #524748;
   --first-color-light: ##7B6F71;
   --first-color-lighten: #FBF9F9;
 
-  /*----- Font and typography -----*/
+  /* Font and typography */
   --body-font: 'Poppins', sans-serif;
   --biggest-font-size: 40px;
   --h1-font-size: 24px;
@@ -22,7 +22,7 @@
   --font-semi-bold: 600;
   --font-bold: 700;
 
-  /*----- Font and typography -----*/
+  /* Margins */
   --mb-1: 8px;
   --mb-2: 16px;
   --mb-3: 24px;
@@ -30,7 +30,7 @@
   --mb-5: 40px;
   --mb-6: 48px;
 
-  /*----- z-index -----*/
+  /* z-index */
   --z-normal: 1;
   --z-tooltip: 10;
   --z-fixed: 100;
@@ -192,20 +192,19 @@ img{
 }
 
 /* Active menu */
-.active-link{
+.active-link {
     position: relative;
-}
-
-.active-link::after{
+  }
+  
+  .active-link::after {
     content: '';
     position: absolute;
-    bottom: -11.2px;
+    bottom: -.7rem;
     left: 0;
     width: 65%;
     height: 3px;
     background-color: var(--first-color-light);
-}
-
+  }
 /* Change bg header */
 .scroll-header{
     background-color: var(--first-color-lighten);
@@ -706,9 +705,6 @@ img{
     .bd-container {
       margin-left: auto;
       margin-right: auto;
-    }
-    .qualification__container {
-      column-gap: 6rem;
     }
 }
 
