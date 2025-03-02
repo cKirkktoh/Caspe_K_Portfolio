@@ -409,7 +409,7 @@ img{
     margin-bottom: var(--mb-4);
 }
 
-/* hire me */
+/* works */
 .project_container{
     padding: 24px 16px;
     background-color: var(--first-color-dark);
@@ -485,6 +485,119 @@ img{
     color: var(--first-color-dark);
     font-weight: var(--font-semi-bold);
 }
+
+/* Modal Background */
+.modalDialog {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.modalDialog:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Modal Content */
+.modalDialog > .modalContent {
+    max-width: 800px;
+    width: 90%;
+    position: relative;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: scale(0.9);
+    transition: transform 0.3s ease-out;
+    
+    max-height: 80vh; 
+    overflow-y: auto; 
+}
+
+.modalDialog:target > .modalContent {
+    transform: scale(1);
+}
+
+/* Close Button */
+.close {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--first-color-light);
+    color: var(--first-color-dark);
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    top: -12px;
+    width: 34px;
+    height: 34px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50%;
+    box-shadow: 1px 1px 3px #000;
+    padding-top: 5px;
+    transition: background-color 0.3s;
+}
+
+.close:hover {
+    background-color: var(--first-color-dark);
+    color: var(--first-color-lighten);
+}
+
+/* Modal Title, Category, and Description */
+.modalTitle {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.modalCategory {
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.modalDescription, .modalDetails {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Style for unordered lists (ul) */
+.modalDialog ul {
+    list-style-type: none; 
+    padding-left: 0;
+    margin: 10px 0; 
+}
+
+
+.modalDialog li {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative; 
+}
+
+.modalDialog li::before {
+    content: "•"; 
+    font-size: 20px;
+    color: var(--first-color-dark);
+    position: absolute;
+    left: 0;
+    top: 0; 
+}
+
+
+
 
 /* demo reel */
 .reel-container {
