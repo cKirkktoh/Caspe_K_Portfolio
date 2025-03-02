@@ -85,3 +85,4 @@ gsap.from('.home_greeting, .home_name, .home_profession, .home_button', {opacity
 gsap.from('.nav_logo, .nav_toggle', {opacity:0, duration: 2, delay: 1.5, y: 25, ease:'expo.out', stagger: .2});
 gsap.from('.nav_item', {opacity:0, duration: 2, delay: 1.8, y: 25, ease:'expo.out', stagger: .2});
 gsap.from('.home_social-icon', {opacity: 0, duration: 2.5, delay: 2.3, y: 25, ease:'expo.out', stagger: .2})
+
