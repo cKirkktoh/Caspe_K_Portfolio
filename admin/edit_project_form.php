@@ -2,13 +2,18 @@
 <html lang="en">
 <?php
 require_once('../includes/connect.php');
-$query = 'SELECT * FROM projects WHERE projects.id = :projectId';
+$query = 'SELECT * FROM projects WHERE projectID = :projectId';
 $stmt = $connection->prepare($query);
-$projectId = $_GET['id'];
+$ProjectId = isset($_GET['ProjectID']) ? $_GET['ProjectID'] : 0;
 $stmt->bindParam(':projectId', $projectId, PDO::PARAM_INT);
 $stmt->execute();
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
+if (!$row) {
+    echo "Project not found";
+    exit;
+}
 ?>
+
 
 <head>
     <meta charset="UTF-8">
