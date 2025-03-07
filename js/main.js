@@ -138,7 +138,6 @@ gsap.from('.fade-in', {
         // URL for PHP file to handle form submission
         const url = "http://localhost/Caspe_K_Portfolio/adduser.php"; 
 
-        // Send form data via fetch (POST)
         fetch(url, {
             method: "POST",
             headers: {
@@ -158,7 +157,7 @@ gsap.from('.fade-in', {
                     feedBack.appendChild(errorElement);
                 });
             } else {
-                // If successful, reset the form and display the success message
+
                 form.reset();
                 const successElement = document.createElement("p");
                 successElement.textContent = responseText.message;
