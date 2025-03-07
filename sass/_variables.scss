@@ -1,0 +1,50 @@
+// _variables.scss
+
+:root {
+    --header-height: 48px;
+    /* Colors */
+    --first-color: #3E0E12;
+    --first-color-dark: #2F0A0D;
+    --text-color: #524748;
+    --first-color-light: #7B6F71;
+    --first-color-lighten: #FBF9F9;
+  
+    /* Font and typography */
+    --body-font: 'Poppins', sans-serif;
+    --biggest-font-size: 40px;
+    --h1-font-size: 24px;
+    --h2-font-size: 20px;
+    --h3-font-size: 18px;
+    --normal-font-size: 15px;
+    --small-font-size: 13px;
+    --smaller-font-size: 12px;
+    --font-medium: 500;
+    --font-semi-bold: 600;
+    --font-bold: 700;
+  
+    /* Margins */
+    --mb-1: 8px;
+    --mb-2: 16px;
+    --mb-3: 24px;
+    --mb-4: 32px;
+    --mb-5: 40px;
+    --mb-6: 48px;
+  
+    /* z-index */
+    --z-normal: 1;
+    --z-tooltip: 10;
+    --z-fixed: 100;
+  }
+  
+  @media screen and (min-width: 768px){
+    :root {
+      --biggest-font-size: 72px;
+      --h1-font-size: 36px;
+      --h2-font-size: 24px;
+      --h3-font-size: 20px;
+      --normal-font-size: 16px;
+      --small-font-size: 14px;
+      --smaller-font-size: 13px;
+    }
+  }
+  
