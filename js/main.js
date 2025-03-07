@@ -63,3 +63,18 @@ gsap.from('.nav_logo, .nav_toggle', {opacity:0, duration: 2, delay: 1.5, y: 25, 
 gsap.from('.nav_item', {opacity:0, duration: 2, delay: 1.8, y: 25, ease:'expo.out', stagger: .2});
 gsap.from('.home_social-icon', {opacity: 0, duration: 2.5, delay: 2.3, y: 25, ease:'expo.out', stagger: .2})
 
+
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.from('.fade-in', {
+  opacity: 0,
+  duration: 1.5,
+  ease: 'power3.out',  // This adds smooth easing
+  scrollTrigger: {
+    trigger: '.fade-in',
+    start: 'top 80%',
+    end: 'bottom 20%',
+    scrub: true,
+    once: true,
+  }
+});
