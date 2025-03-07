@@ -1,16 +1,3 @@
-<?php
-//include('includes/connect.php');
-// Fetch projects from the database 데이터베이스에서 프로젝트 테이블 페치!
-// $query_projects = "SELECT * FROM projects ORDER BY year DESC";
-// $projects_result = $conn->query($query_projects);
-require_once('includes/connect.php');
-
-$stmt = $connection->prepare('SELECT * FROM projects ORDER BY year ASC');
-$stmt->execute();
-$projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>

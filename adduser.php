@@ -2,7 +2,7 @@
     header("Access-Control-Allow-Origin: *");
     header("Content-Type: application/json; charset=UTF-8");
 
-    $db_host = 'localhost:8888';
+    $db_host = 'localhost';
     $db_user = 'root';
     $db_pass = '';
     $db_name = 'portfolio_d';
@@ -27,23 +27,35 @@
 
     $number = mysqli_real_escape_string($connection, $_POST['number']);
     if ($number == NULL) {
-        $errors[] = "number field is empty.";
+        $errors[] = "Number field is empty.";
     }
 
+    $message = mysqli_real_escape_string($connection, $_POST['message']);
+    if ($message == NULL) {
+        $errors[] = "Message field is empty.";
+    }
+
+   
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errors[] = "\"" . $email . "\" is not a valid email address.";
     }
 
-    $errcount = count($errors);
-    if ($errcount > 0) {
-        $errmsg = array();
-        for ($i = 0; $i < $errcount; $i++) {
-            $errmsg[] = $errors[$i];
-        }
-        echo json_encode(array("errors" => $errmsg));
+
+    if (count($errors) > 0) {
+        echo json_encode(array("errors" => $errors));
     } else {
-        $querystring = "INSERT INTO contacts(ContactID,fname,lname,email,number,message) VALUES(NULL,'" . $fname . "','" . $lname . "','" . $email . "','" . $number . "','" . $message ."')";
+
+        $querystring = "INSERT INTO contacts (ContactID, fname, lname, email, number, message) 
+                        VALUES (NULL, '$fname', '$lname', '$email', '$number', '$message')";
+
         $qpartner = mysqli_query($connection, $querystring);
-        echo json_encode(array("message" => "Form submitted. Thank you for your interest!"));
+
+        if ($qpartner) {
+            echo json_encode(array("message" => "Form submitted. Thank you for your interest!"));
+        } else {
+            echo json_encode(array("errors" => array("Error saving data to the database.")));
+        }
     }
+
+    mysqli_close($connection);
 ?>
