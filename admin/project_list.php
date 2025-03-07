@@ -46,5 +46,6 @@ $stmt->close();
     <textarea name="desc" required></textarea><br><br>
     <input name="submit" type="submit" value="Add">
 </form>
+<a href="logout.php">log out</a>
 </body>
 </html>

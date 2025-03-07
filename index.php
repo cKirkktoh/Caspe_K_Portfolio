@@ -1,34 +1,542 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
+//include('includes/connect.php');
+// Fetch projects from the database 데이터베이스에서 프로젝트 테이블 페치!
+// $query_projects = "SELECT * FROM projects ORDER BY year DESC";
+// $projects_result = $conn->query($query_projects);
 require_once('includes/connect.php');
 
-// Fetch projects
-$stmt = $connection->prepare('SELECT ProjectID, proj_title, proj_desc, URL FROM projects ORDER BY proj_title ASC');
+$stmt = $connection->prepare('SELECT * FROM projects ORDER BY year ASC');
 $stmt->execute();
+$projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Page</title>
-    <link rel="stylesheet" href="css/main.css" type="text/css">
-</head>
-<body>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Kirk Portfolio</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/grid.css">
+    </head>
+    <body>
+        <a href="#" class="scrolltop" id="scroll-top">
+            <i class='bx bx-chevron-up scrolltop_icon' ></i>
+        </a>
 
-<?php
-while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    echo '<section class="project-con">
-            <h3>' . htmlspecialchars($row['proj_title']) . '</h3>
-            <a href="project_details.php?id=' . $row['ProjectID'] . '">
-                <img class="thumbnail" src="images/' . htmlspecialchars($row['URL']) . '" alt="' . htmlspecialchars($row['proj_title']) . ' Thumbnail">
-            </a>
-            <p>' . htmlspecialchars($row['proj_desc']) . '</p>
-          </section>';
-}
+        <!-- header -->
+        <header class="l-header" id="header">
+            <nav class="nav bd-container">
+                
+                <a href="#" class="nav_logo">Kirk Caspe</a>
 
-$stmt = null;
-?> 
+                <div class="nav_menu" id="nav-menu">
+                    <ul class="nav_list">
+                        <li class="nav_item"><a href="#home" class="nav_link active-link">Home</a></li>
+                        <li class="nav_item"><a href="#about" class="nav_link">About Me</a></li>
+                        <li class="nav_item"><a href="#works" class="nav_link">Works</a></li>
+                        <li class="nav_item"><a href="#services" class="nav_link">Services</a></li>
+                        <li class="nav_item"><a href="#contact" class="nav_link">Contact Me</a></li>
+                    </ul>
+                </div>
 
-</body>
+                <div class="nav_toggle" >
+                    <i class='bx bx-menu ' id="nav-toggle"></i>
+                </div>
+            </nav>
+        </header>
+
+        <main class="l-main">
+            <!-- home -->
+            <section class="home" id="home">
+                <div class="home_container bd-container bd-grid">
+                    <div class="home_data">
+                        <span class="home_greeting">Hello, My name is</span>
+                        <h1 class="home_name">Kirk Caspe</h1>
+                        <span class="home_profession">Graphic and <br> Motion Designer</span>
+                        <a download="" href="" class="button button-light">Download Cv</a>
+                    </div>
+                    
+                    <div class="home_social">
+                        <a href="https://www.facebook.com/kirk.caspe" target="_blank" class="home_social-icon"><i class='bx bxl-facebook-square'></i></a>
+                        <a href="https://www.instagram.com/kirkcsp/" target="_blank" class="home_social-icon"><i class='bx bxl-instagram'></i></a>
+                        <a href="https://x.com/kirk_csp" target="_blank" class="home_social-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+                            <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                          </svg></a>
+                    </div>
+
+                    <div class="home_img">
+                        <img src="images/kirk_bg.JPG" alt="">
+                    </div>
+                </div>
+            </section>
+            
+            <!-- about -->
+            <section class="about section bd-container" id="about">
+                <span class="section-subtitle">My history</span>
+                <h2 class="section-title">About me</h2>
+
+                <div class="about_container  bd-grid">
+                    <div class="about_data bd-grid">
+                        <p class="about_description"><span>Hello, I am <br> </span>Kirk Caspe, a passionate and dynamic Graphic/Motion Designer and Web Designer, currently studying at Fanshawe College, London, Ontario while embarking on a journey of creative exploration. With a keen eye for detail and a drive for innovation, I bring fresh perspectives to every project I undertake. At 21 years old, I am dedicated to pushing boundaries and mastering new techniques in design. Eager to collaborate and contribute to meaningful projects that leave a lasting impact.</p>
+
+                        <div>
+                            <span class="about_number">01</span>
+                            <span class="about_achievement">Year of Experience</span>
+                        </div>
+
+                        <div>
+                            <span class="about_number">29+</span>
+                            <span class="about_achievement">Projects completed</span>
+                        </div>
+
+                        <div>
+                            <span class="about_number">99+</span>
+                            <span class="about_achievement">Hours</span>
+                        </div>
+                    </div>
+
+                    <img src="images/kirk_portrait.jpg" alt="" class="about_img">
+                    <img src="images/kirk.jpg" alt="" class="about_img">
+                </div>
+            </section>
+
+            <!-- Portfolio -->
+            <section class="portfolio bd-container section" id="works">
+                <span class="section-subtitle">My recent works</span>
+                <h2 class="section-title">Portfolio</h2>
+                
+                <div class="portfolio_nav">
+                    <span class="portfolio_item active-portfolio" data-filter="all">All</span>
+                    <span class="portfolio_item" data-filter=".motion">Motion Design</span>
+                    <span class="portfolio_item" data-filter=".graphic">Graphic Design</span>
+                    <span class="portfolio_item" data-filter=".web">Web Development</span>
+                    <span class="portfolio_item" data-filter=".photo">Photography</span>
+                </div>
+
+                <div class="portfolio_container bd-grid">
+                    <div class="portfolio_content mix motion">
+                        <a href="#openModal-sports"><img src="images/sports_motion_graphic_pic1545.jpg" alt="" class="portfolio_img"></a>
+                        <div class="portfolio_data">
+                            <span class="portfolio_subtitle">Motion Design</span>
+                            <a href="#openModal-sports"><h2 class="portfolio_title">Sports Motion Graphics</h2></a>
+                            <a href="#openModal-sports" class="button button-link">View Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Modal for Sports Motion Graphics -->
+                    <div id="openModal-sports" class="modalDialog">
+                        <div class="modalContent">
+                            <a href="#close" title="Close" class="close">X</a>
+                            <h2>Overview</h2>
+                            <p>The Sports Motion Graphics project was an exciting exploration into the fusion of sports and visual storytelling through dynamic motion graphics. This project shows a promotional match between two of the biggest English Premier League teams in the country: Tottenham Hotspur Vs Chelsea.</p>
+                            
+                            <h2>Goals</h2>
+                            <ul>
+                                <li>Engaging Storytelling: Develop visually captivating motion graphics to enhance the sports viewing experience.</li>
+                                <li>Dynamic Visuals: Create animations that complement the energy and excitement of sports events.</li>
+                                <li>Branding Integration: Ensure seamless integration of team branding and event graphics.</li>
+                            </ul>
+
+                            <img class="img-responsive" src="images/sports_motion_graphic2.png" alt="sports_motion_graphic"><br>
+                            
+                            <h2>Video</h2>
+                            <video width="100%" height="auto" controls>
+                                <source src="videos/Caspe_Kirk_sports_motion_graphics.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                    
+                            <h2>Problems</h2>
+                            <ul>
+                                <li>Maintaining Consistency: Ensuring a consistent visual language across various sports and events.</li>
+                                <li>Performance Optimization: Balancing high-quality visuals with smooth playback on various devices.</li>
+                                <li>Less Time Render: Took 2 days to complete 100 frames out of 1551. So I just removed lots of textures.</li>
+                            </ul>
+
+                            <img class="img-responsive" src="images/sports_motion_unfinished.png" alt="sports_motion_graphic"><br>
+                    
+                            <h2>Process</h2>
+                            <ul>
+                                <li>1. Conceptualization: Brainstorming ideas and conceptualizing the overall theme and visual style for the motion graphic.</li>
+                                <li>2. Asset Creation: Creating 3D models, textures, and graphics elements for the animation using Cinema 4D.</li>
+                                <li>3. Animation and Rendering: Animating the assets, adding movement, camera angles, and effects. Rendering final frames using Cinema 4D.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+
+                    <div class="portfolio_content mix motion">
+                        <a href="#openModal-earbuds"><img src="images/earbuds_6.png" alt="" class="portfolio_img"></a>
+                        <div class="portfolio_data">
+                            <span class="portfolio_subtitle">Motion Design</span>
+                            <a href="#openModal-earbuds"><h2 class="portfolio_title">Klint Earbuds</h2></a>
+                            <a href="#openModal-earbuds" class="button button-link">View Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Modal for earbuds -->
+                    <div id="openModal-earbuds" class="modalDialog">
+                        <div class="modalContent">
+                            <a href="#close" title="Close" class="close">X</a>
+                            <h2>Overview</h2>
+                            <p>The Earbuds project was a venture aimed at creating cutting-edge wireless earbuds...
+                                This awesome earbuds took me a while to make considering all the stuffs i had to make and code
+                                out a website for it</p>
+                            
+                            <img class="img-responsive" src="images/earbuds_6.png" alt="Klint Earbuds"><br>
+                            
+                            <h2>Video</h2>
+                            <video width="100%" height="auto" controls>
+                                <source src="videos/Caspe_Kirk_Earbuds_Sub3.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <p>This website includes a promotional video and as well as a 3D Model of the earbuds.</p>
+                            <h2>Click "Live Preview" to visit the Earbuds Website!</h2>
+							<p class="read"><a href="earbuds.html">Live Preview</a></p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio_content mix motion">
+                        <a href="#openModal-tendertouch"><img src="images/tender_touch.png" alt="" class="portfolio_img"></a>
+                        <div class="portfolio_data">
+                            <span class="portfolio_subtitle">Motion Design</span>
+                            <a href="#openModal-tendertouch"><h2 class="portfolio_title">Tender Touch Hemorrhoid Solutions</h2></a>
+                            <a href="#openModal-tendertouch" class="button button-link">View Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Modal for TenderTouch -->
+                    <div id="openModal-tendertouch" class="modalDialog">
+                        <div class="modalContent">
+                            <a href="#close" title="Close" class="close">X</a>
+                            <h2>Overview</h2>
+                            <p>The TenderTouch Hemorrhoid Solutions project focuses on creating a calming and professional video that showcases the effectiveness of the product while promoting trust and relief for individuals suffering from hemorrhoids.</p>
+                            
+                            <h2>Goals</h2>
+                            <ul>
+                                <li><strong>Brand Trust and Relief:</strong> The video aims to build trust with the audience while conveying the relief that TenderTouch provides.</li>
+                                <li><strong>Emotional Connection:</strong> The video seeks to foster an emotional connection by showing the product’s effectiveness and comfort.</li>
+                                <li><strong>Minimal Aesthetic:</strong> A calming and minimal design was used throughout the project to ensure that the product message feels professional and approachable.</li>
+                            </ul>
+                            
+                            <h2>Process</h2>
+                            <ul>
+                                <li><strong>Logo Design:</strong> Developing a calming, elegant logo animation that represents the product’s soothing qualities.</li>
+                                <li><strong>Video Storyboarding:</strong> Creating a storyboard that aligns with the brand’s minimalist aesthetic and emotional tone.</li>
+                                <li><strong>Video Animation & Post-Production:</strong> Animating the logo and integrating it into the video, ensuring a smooth and calming transition between visuals.</li>
+                            </ul>
+
+                            <h2>Problems</h2>
+                            <ul>
+                                <li><strong>Logo Animation Challenge:</strong> Balancing simplicity and professionalism in the logo animation to create trust without being too minimal.</li>
+                                <li><strong>Balancing Aesthetic with Effectiveness:</strong> Ensuring that the video conveys both relief and effectiveness without becoming too cluttered.</li>
+                                <li><strong>Timing and Smoothness:</strong> Achieving the right pacing for the logo animation to match the calming tone of the video.</li>
+                            </ul>
+
+                            <h2>Video</h2>
+                            <video width="100%" height="auto" controls>
+                                <source src="videos/Caspe_Kirk_TenderTouch.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio_content mix graphic">
+                        <a href="#openModal-elin"><img src="images/elin-magazine.jpg" alt="" class="portfolio_img"></a>
+                        <div class="portfolio_data">
+                            <span class="portfolio_subtitle">Graphic Design</span>
+                            <a href="#openModal-elin"><h2 class="portfolio_title">Elin Magazine</h2></a>
+                            <a href="#openModal-elin" class="button button-link">View Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Modal for elin -->
+                    <div id="openModal-elin" class="modalDialog">
+                        <div class="modalContent">
+                            <a href="#close" title="Close" class="close">X</a>
+                            <h2>Overview</h2>
+                            <p>he Elin Makeup project focused on crafting a memorable brand identity, including a logo and label design for the cosmetic line. Drawing inspiration from industry elegance, meticulous attention to detail ensured alignment with target audience preferences. Strategic considerations, including brand messaging and packaging design, were integrated for a cohesive and compelling brand experience. The result? A captivating identity reflecting Elin Makeup's trusted and aspirational image.</p>
+
+                            <h2>Goals</h2>
+							<ul>
+								<li>Brand Identity: Develop a unique and recognizable brand identity for "Elin."</li>
+								<li>Logo and Label Design: Create a visually appealing logo and label that seamlessly represent the brand.</li>
+								<li>Promotional Video: Produced a compelling 15 to 30-second promotional video showcasing key elements of the brand and engaging the viewer.</li>
+							</ul>
+                            <img class="img-responsive" src="images/Elin_bg.png" alt="elin logo"><br>
+							<h2>Approach</h2>
+							<h3>Branding</h3>
+							<ul>
+								<li>Brand Positioning</li>
+								<li>Visual Elements</li>
+							</ul>
+							<h3>Logo and Label Design</h3>
+							<ul>
+							    <li>Logo Creation</li>
+								<li>Label Design</li>
+							</ul>
+							<h3>Promotional Video</h3>
+							<ul>
+								<li>Storyboarding</li>
+								<li>Live Video and Product Shots</li>
+								<li>Logo End Slate Animation</li>
+							</ul>
+							<h2>Outcome</h2>
+							<ul>
+								<li>A Recognizable Brand Identity</li>
+								<li>Online Visibility</li>
+							</ul>
+                            <h2>Video</h2>
+                            <video width="100%" height="auto" controls>
+                                <source src="videos/meijer_caspe_elin_make_up.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="portfolio_content mix motion">
+                        <a href="#openModal-tsequence"><img src="images/loki_ts.png" alt="" class="portfolio_img"></a>
+                        <div class="portfolio_data">
+                            <span class="portfolio_subtitle">Motion Design</span>
+                            <a href="#openModal-tsequence"><h2 class="portfolio_title">Loki Title Sequence</h2></a>
+                            <a href="#openModal-tsequence" class="button button-link">View Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Modal for tsequence -->
+                    <div id="openModal-tsequence" class="modalDialog">
+                        <div class="modalContent">
+                            <a href="#close" title="Close" class="close">X</a>
+                            <h2>Overview</h2>
+                            <p>The title sequence project, inspired by the hit show "Loki," offers a captivating reinterpretation of the series' iconic opening sequence. Drawing inspiration from the show's themes of mischief, time-travel, and Norse mythology, the recreated title sequence features dynamic visuals and intricate animations that capture the essence of the Marvel Cinematic Universe (MCU) character.</p>
+                            <p>Through meticulous attention to detail and creative flair, the project immerses viewers in the world of "Loki," setting the tone for each episode with its distinctive style and aesthetic. From sleek typography to mesmerizing graphics, every element of the title sequence is carefully crafted to evoke the spirit of the beloved Marvel character and the fantastical universe he inhabits.</p>
+                            <img class="img-responsive" src="images/loki_ss.png" alt="loki title sequence"><br>
+
+                            <h2>Goals</h2>
+							<ul>
+								<li>Captivate Audience Interest: The primary goal of the videos is to capture and maintain the interest of the audience from the very beginning, enticing them to watch further.</li>
+								<li>Introduce Characters and Story: Another goal is to introduce key characters and elements of the story in a compelling and memorable way, giving viewers a taste of what to expect from the series.</li>
+								<li>Generate Excitement and Anticipation: They aim to generate excitement and anticipation for upcoming episodes, leaving viewers eager to see more and encouraging them to tune in regularly.</li>
+							</ul>
+							<h2>Problems</h2>
+								<li>Rendering Time and Performance: Lengthy rendering times and performance issues can significantly slow down the production process, impacting productivity and delaying project delivery.</li>
+								<li>Integration and Compatibility: Challenges may arise when integrating After Effects with other software or third-party plugins, leading to compatibility issues and workflow disruptions.</li>
+								<li>File Management and Organization: Managing project files, compositions, and assets within After Effects can become unwieldy, leading to disorganization, confusion, and potential loss of important files.</li>
+								<li>Rendering Errors: Errors during the rendering process, such as missing files, corrupted frames, or unexpected glitches, may occur, resulting in incomplete or unusable output files and requiring troubleshooting to resolve.</li>
+                            <h2>Video</h2>
+                            <video width="100%" height="auto" controls>
+                                <source src="videos/Caspe_Kirk_Title_Sequence.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="portfolio_content mix web">
+                        <a href="#"><img src="images/star_wars.png" alt="" class="portfolio_img"></a>
+                        <div class="portfolio_data">
+                            <span class="portfolio_subtitle">Web Development</span>
+                            <a href="#"><h2 class="portfolio_title">Star Wars Characters List</h2></a>
+                            <a href="#" class="button button-link">View Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Modal for earbuds -->
+                    <div id="openModal-earbuds" class="modalDialog">
+                        <div class="modalContent">
+                            <a href="#close" title="Close" class="close">X</a>
+                            <h2>Overview</h2>
+                            <p>The Earbuds project was a venture aimed at creating cutting-edge wireless earbuds...
+                                This awesome earbuds took me a while to make considering all the stuffs i had to make and code
+                                out a website for it</p>
+                            
+                            <img class="img-responsive" src="images/earbuds_6.png" alt="Klint Earbuds"><br>
+                            
+                            <h2>Video</h2>
+                            <video width="100%" height="auto" controls>
+                                <source src="videos/Caspe_Kirk_Earbuds_Sub3.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <p>This website includes a promotional video and as well as a 3D Model of the earbuds.</p>
+                            <h2>Click "Live Preview" to visit the Earbuds Website!</h2>
+							<p class="read"><a href="earbuds.html">Live Preview</a></p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio_content mix photo">
+                        <a href="#"><img src="images/photography_1.JPG" alt="" class="portfolio_img"></a>
+                        <div class="portfolio_data">
+                            <span class="portfolio_subtitle">Photography</span>
+                            <a href="#"><h2 class="portfolio_title">Toronto from Center Island</h2></a>
+                            <a href="#" class="button button-link">View Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Modal for earbuds -->
+                    <div id="openModal-earbuds" class="modalDialog">
+                        <div class="modalContent">
+                            <a href="#close" title="Close" class="close">X</a>
+                            <h2>Overview</h2>
+                            <p>The Earbuds project was a venture aimed at creating cutting-edge wireless earbuds...
+                                This awesome earbuds took me a while to make considering all the stuffs i had to make and code
+                                out a website for it</p>
+                            
+                            <img class="img-responsive" src="images/earbuds_6.png" alt="Klint Earbuds"><br>
+                            
+                            <h2>Video</h2>
+                            <video width="100%" height="auto" controls>
+                                <source src="videos/Caspe_Kirk_Earbuds_Sub3.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <p>This website includes a promotional video and as well as a 3D Model of the earbuds.</p>
+                            <h2>Click "Live Preview" to visit the Earbuds Website!</h2>
+							<p class="read"><a href="earbuds.html">Live Preview</a></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Demo Reel -->
+            <section class="reel bd-container section" id="reel">
+                <span class="section-subtitle">Showcase</span>
+                <h2 class="section-title">My Demo Reel</h2>
+                
+                <div class="reel-container">
+                    <video controls class="reel-video">
+                        <source src="videos/Caspe_Kirk_Demo_Reel.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p class="reel-description">
+                        A collection of my best work in motion design and video editing. Watch my reel to see my skills in action!
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- hire me -->
+            <section class="project bd-container section">
+                <div class="project_container bd-grid">
+                    <div class="project_data">
+                        <i class='bx bx-chat project_icon'></i>
+                        <div>
+                            <h2 class="project_title">Got a project in mind?</h2>
+                            <p class="project_description">Hire me to carry out the future projects.</p>
+                        </div>
+                        <div>
+                            <a href="#contact" class="button button-white">Hire me</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- services -->
+            <section class="services section bd-container" id="services">
+                <span class="section-subtitle">What I offer</span>
+                <h2 class="section-title">Services</h2>
+
+                <div class="services_container bd-grid">
+                    <div class="services_data">
+                        <i class='bx bx-pen services_icon'></i>
+                        <h3 class="services_title">Graphic Design</h3>
+                        <p class="service_description">I really excel in doing Graphic Design epsecially with Adobe Suite Apps like Illustrator, Photoshop, InDesign, and XD.</p>
+                    </div>
+
+                    <div class="services_data">
+                        <i class='bx bxs-video services_icon'></i>
+                        <h3 class="services_title">Motion Design</h3>
+                        <p class="service_description">I really love video editing and doing motion graphics. I have fair amount of time using Adobe Premiere Pro, Adobe After Effects, and Cinema 4D.</p>
+                    </div>
+
+                    <div class="services_data">
+                        <i class='bx bx-palette services_icon' ></i>
+                        <h3 class="services_title">UX/UI Design</h3>
+                        <p class="service_description">I enjoy creating intuitive and visually engaging user experiences. With experience in tools like Adobe XD and Figma, I focus on designing user-friendly interfaces that enhance accessibility and interaction.</p>
+                    </div>
+                </div>
+
+            </div>
+            </section>
+
+            <!-- Contact -->
+            <section class="contact bd-container section" id="contact">
+                <span class="section-subtitle">Got a project in mind?</span>
+                <h2 class="section-title">Contact Me!</h2>
+
+                <div class="contact_container bd-grid">
+
+                    <div class="contact_content bd-grid">
+                        <div class="contact_box">
+                            <i class='bx bx-home contact_icon'></i>
+                            <h3 class="contact_title">Location</h3>
+                            <span class="contact_description">629 Kipps Lane, London, Ontario</span>
+                        </div>
+
+                        <div class="contact_box">
+                            <i class='bx bx-phone contact_icon'></i>
+                            <h3 class="contact_title">Phone</h3>
+                            <span class="contact_description">226-239-6882</span>
+                        </div>
+
+                        <div class="contact_box">
+                            <i class='bx bx-envelope contact_icon'></i>
+                            <h3 class="contact_title">Email</h3>
+                            <span class="contact_description">kirkcaspe18@gmail.com</span>
+                        </div>
+
+                        <div class="contact_box">
+                            <i class='bx bx-chat contact_icon'></i>
+                            <h3 class="contact_title">Chat</h3>
+                            <div>
+                                <a href="#" class="contact_social"><i class='bx bxl-whatsapp'></i></a>
+                                <a href="#" class="contact_social"><i class='bx bxl-instagram'></i></a>
+                                <a href="#" class="contact_social"><i class='bx bxl-messenger'></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form action="" class="contact_form">
+                        <div class="contact_inputs">
+                            <input type="text" placeholder="First Name" class="contact_input">
+                            <input type="text" placeholder="Last Name" class="contact_input">
+                        </div>
+
+                        <div class="contact_inputs">
+                            <input type="mail" placeholder="Email" class="contact_input">
+                            <input type="number" placeholder="Number" class="contact_input">
+                        </div>
+
+                        <textarea name="" id="" cols="0" rows="7" placeholder="Message" class="contact_input"></textarea>
+
+                        <input type="submit" value="Send Message" class="button contact_button">
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer_container bd-container">
+                <h1 class="footer_title">Kirk Caspe</h1>
+                <p class="footer_description">I'm Kirk Caspe, a passionate graphic and motion designer. Let's create something amazing!</p>
+                <p class="footer_description">Designing with purpose, moving with style. Let’s bring your vision to life!</p>
+
+                <div class="footer_social">
+                    <a href="https://www.linkedin.com/in/kirk-caspe-08078420a/" class="footer_link"><i class='bx bxl-linkedin'></i></a>
+                    <a href="https://github.com/cKirkktoh" class="footer_link"><i class='bx bxl-github'></i></a>
+                    <a href="https://www.instagram.com/kirkcsp/" class="footer_link"><i class='bx bxl-instagram-alt'></i></a>
+                    <a href="https://www.facebook.com/kirk.caspe" class="footer_link"><i class='bx bxl-facebook-circle'></i></a>
+                    <a href="https://x.com/kirk_csp" class="footer_link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+                        <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                      </svg></a>
+                    <a href="kirkcaspe18@gmail.com" class="footer_link"><i class='bx bxl-gmail'></i></a>
+                    <a href="#" class="footer_link"><i class='bx bxl-whatsapp'></i></a>
+                </div>
+            </div>
+        </footer>
+        <script src="js/mixitup.min.js"></script>
+        <script src="js/gsap.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
 </html>
