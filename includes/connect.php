@@ -1,11 +1,9 @@
 <?php
-$connect = new mysqli('localhost', 'root', '', 'portfolio_d');
-
-// Check connection
-if ($connect->connect_error) {
-    die("Connection failed: " . $connect->connect_error);
+$dsn = "mysql:host=localhost;dbname=portfolio_d;charset=utf8mb4";
+try {
+$connection = new PDO($dsn, 'root', '');
+} catch (Exception $e) {
+  error_log($e->getMessage());
+  exit('unable to connect');
 }
-
-// You may add further error handling for preparing statements here if necessary
-
 ?>
