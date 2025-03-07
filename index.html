@@ -492,23 +492,26 @@
                         </div>
                     </div>
 
-                    <form action="" class="contact_form">
+                    <form action="" id="contactForm" class="contact_form">
                         <div class="contact_inputs">
-                            <input type="text" placeholder="First Name" class="contact_input">
-                            <input type="text" placeholder="Last Name" class="contact_input">
+                            <input type="text" id="fname" placeholder="First Name" class="contact_input">
+                            <input type="text" id="lname" placeholder="Last Name" class="contact_input">
                         </div>
 
                         <div class="contact_inputs">
-                            <input type="mail" placeholder="Email" class="contact_input">
-                            <input type="number" placeholder="Number" class="contact_input">
+                            <input type="email" id="email" placeholder="Email" class="contact_input">
+                            <input type="number" id="number" placeholder="Number" class="contact_input">
                         </div>
 
-                        <textarea name="" id="" cols="0" rows="7" placeholder="Message" class="contact_input"></textarea>
+                        <textarea id="message" cols="0" rows="7" placeholder="Message" class="contact_input"></textarea>
 
                         <input type="submit" value="Send Message" class="button contact_button">
                     </form>
+
+                    <div id="responseMessage"></div> <!-- This will show success or error messages -->
                 </div>
             </section>
+
         </main>
 
         <!-- Footer -->
