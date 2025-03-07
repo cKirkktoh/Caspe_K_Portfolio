@@ -113,7 +113,7 @@ gsap.from('.fade-in', {
         }
 
         // URL for PHP file to handle form submission
-        const url = "http://localhost:8888/Caspe_K_Portfolio/adduser.php"; 
+        const url = "http://localhost/Caspe_K_Portfolio/adduser.php"; 
 
         // Send form data via fetch (POST)
         fetch(url, {
