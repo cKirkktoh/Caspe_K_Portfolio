@@ -21,6 +21,12 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/grid.css">
+        <script defer type="module" src="js/activePortfolio.js"></script>
+        <script defer type="module" src="js/gsapAnimation.js"></script>
+        <script defer type="module" src="js/mixitupFilter.js"></script>
+        <script defer type="module" src="js/scrollActive.js"></script>
+        <script defer type="module" src="js/scrollHeader.js"></script>
+        <script defer type="module" src="js/scrollTop.js"></script>
     </head>
     <body>
         <a href="#" class="scrolltop" id="scroll-top">
@@ -79,9 +85,11 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <span class="section-subtitle">My history</span>
                 <h2 class="section-title">About me</h2>
 
-                <div class="about_container  bd-grid">
+                <div class="about_container bd-grid fade-in">
                     <div class="about_data bd-grid">
-                        <p class="about_description"><span>Hello, I am <br> </span>Kirk Caspe, a passionate and dynamic Graphic/Motion Designer and Web Designer, currently studying at Fanshawe College, London, Ontario while embarking on a journey of creative exploration. With a keen eye for detail and a drive for innovation, I bring fresh perspectives to every project I undertake. At 21 years old, I am dedicated to pushing boundaries and mastering new techniques in design. Eager to collaborate and contribute to meaningful projects that leave a lasting impact.</p>
+                        <p class="about_description">
+                            <span>Hello, I am <br> </span>Kirk Caspe, a passionate and dynamic Graphic/Motion Designer and Web Designer, currently studying at Fanshawe College, London, Ontario while embarking on a journey of creative exploration. With a keen eye for detail and a drive for innovation, I bring fresh perspectives to every project I undertake. At 21 years old, I am dedicated to pushing boundaries and mastering new techniques in design. Eager to collaborate and contribute to meaningful projects that leave a lasting impact.
+                        </p>
 
                         <div>
                             <span class="about_number">01</span>
@@ -103,6 +111,7 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <img src="images/kirk.jpg" alt="" class="about_img">
                 </div>
             </section>
+
 
             <!-- Portfolio -->
             <section class="portfolio bd-container section" id="works">
@@ -496,23 +505,26 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         </div>
                     </div>
 
-                    <form action="" class="contact_form">
+                    <form action="" id="contactForm" class="contact_form">
                         <div class="contact_inputs">
-                            <input type="text" placeholder="First Name" class="contact_input">
-                            <input type="text" placeholder="Last Name" class="contact_input">
+                            <input type="text" id="fname" placeholder="First Name" class="contact_input">
+                            <input type="text" id="lname" placeholder="Last Name" class="contact_input">
                         </div>
 
                         <div class="contact_inputs">
-                            <input type="mail" placeholder="Email" class="contact_input">
-                            <input type="number" placeholder="Number" class="contact_input">
+                            <input type="email" id="email" placeholder="Email" class="contact_input">
+                            <input type="number" id="number" placeholder="Number" class="contact_input">
                         </div>
 
-                        <textarea name="" id="" cols="0" rows="7" placeholder="Message" class="contact_input"></textarea>
+                        <textarea id="message" cols="0" rows="7" placeholder="Message" class="contact_input"></textarea>
 
                         <input type="submit" value="Send Message" class="button contact_button">
                     </form>
+
+                    <div id="responseMessage"></div> <!-- This will show success or error messages -->
                 </div>
             </section>
+
         </main>
 
         <!-- Footer -->
@@ -535,8 +547,10 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </div>
             </div>
         </footer>
+
         <script src="js/mixitup.min.js"></script>
         <script src="js/gsap.min.js"></script>
-        <script src="js/main.js"></script>
+        <script type="module" src="js/main.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
     </body>
 </html>
