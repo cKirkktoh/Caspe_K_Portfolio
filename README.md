@@ -7,10 +7,10 @@ Welcome to my portfolio! I'm Kirk Caspe, a passionate graphic designer, photogra
 I'm a detail-oriented creative with a strong passion for visual storytelling. Through my studies at Fanshawe College and hands-on experience with personal projects, I've developed a versatile skill set that blends design, photography, motion graphics, and front-end coding. I love pushing creative boundaries and constantly learning new techniques to elevate my work.
 
 ## What I Bring to the Table:
-✔️ Graphic Design Expertise – From vector illustrations to print media, I bring concepts to life with precision and creativity.
-✔️ Photography Passion – Capturing moments that tell a story, whether through landscapes, portraits, or event photography.
-✔️ Motion Design Skills – Creating dynamic animations and motion graphics that enhance storytelling and engagement.
-✔️ Front-End Development Basics – I enjoy exploring web design, adding interactivity and functionality to visual experiences.
+- ✔️ Graphic Design Expertise – From vector illustrations to print media, I bring concepts to life with precision and creativity.
+- ✔️ Photography Passion – Capturing moments that tell a story, whether through landscapes, portraits, or event photography.
+- ✔️ Motion Design Skills – Creating dynamic animations and motion graphics that enhance storytelling and engagement.
+- ✔️ Front-End Development Basics – I enjoy exploring web design, adding interactivity and functionality to visual experiences.
 
 ## 🎨 Portfolio Highlights
 I am a passionate and dedicated in Web Designing. I am committed to delivering high-quality work and constantly expanding my knowledge in the field.
