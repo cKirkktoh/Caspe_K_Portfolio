@@ -29,12 +29,14 @@ SET time_zone = "+00:00";
 
 CREATE TABLE contacts (
   ContactID int NOT NULL,
-  fname varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  fname varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci
+ NOT NULL,
   lname varchar(255) NOT NULL,
   email varchar(300) NOT NULL,
   number varchar(255) NOT NULL,
   message text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
+;
 
 --
 -- Dumping data for table contacts
@@ -52,11 +54,13 @@ INSERT INTO contacts (ContactID, fname, lname, email, number, message) VALUES
 CREATE TABLE media (
   media_id int NOT NULL,
   project_id int DEFAULT NULL,
-  media_type enum('image','video','other') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  media_type enum('image','video','other') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci
+ DEFAULT NULL,
   media_url varchar(255) DEFAULT NULL,
   caption text,
   upload_date timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
+;
 
 --
 -- Dumping data for table media
@@ -74,15 +78,19 @@ INSERT INTO media (media_id, project_id, media_type, media_url, caption, upload_
 
 CREATE TABLE projects (
   ProjectID int NOT NULL,
-  proj_title varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  proj_desc text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  URL varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  proj_title varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci
+ NOT NULL,
+  proj_desc text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci
+ NOT NULL,
+  URL varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci
+ NOT NULL,
   date_started date NOT NULL,
   date_completed date NOT NULL,
   UserID int NOT NULL,
   CategoryID int NOT NULL,
   client varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
+;
 
 --
 -- Dumping data for table projects
@@ -103,9 +111,12 @@ INSERT INTO projects (ProjectID, proj_title, proj_desc, URL, date_started, date_
 
 CREATE TABLE `user` (
   UserID int NOT NULL,
-  username varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  password varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  username varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci
+ NOT NULL,
+  password varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci
+ NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
+;
 
 --
 -- Dumping data for table user
